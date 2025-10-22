@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Limu Emu & Doug 2025 — Official Campaign (Parody for Class)</title>
+<meta name="description" content="Parody educational project. Republican ticket: Limu Emu for President with Doug as running mate. Opponent: Geico Gecko." />
+<style>
+  /* =========================
+     LIBERTY MUTUAL LOOK & FEEL
+     ========================= */
+  :root{
+    --liberty-yellow:#FFCD00;
+    --liberty-blue:#002D5B;
+    --ink:#0b2239;
+    --bg:#ffffff;
+    --muted:#f4f6f9;
+    --line:#e5e9f2;
+    --success:#1fa971;
+    --error:#d14343;
+    --shadow:0 10px 24px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+    --radius:16px;
+    --radius-sm:12px;
+    --radius-lg:24px;
+    --section-pad:clamp(48px, 6vw, 96px);
+    --container:clamp(1040px, 88vw, 1280px);
+  }
+  html,body{height:100%}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+  }
+  .container{width: min(var(--container), 100%); margin-inline:auto; padding-inline:clamp(16px, 3vw, 28px)}
+  .section{padding-block:var(--section-pad); position:relative}
+  .section-title{
+    font-size:clamp(28px, 3.4vw, 44px);
+    line-height:1.15;
+    margin:0 0 14px;
+    color:var(--liberty-blue);
+  }
+  .section-kicker{
+    font-size:clamp(12px, 1.3vw, 13px);
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-weight:700;
+    color:#3a5a7a;
+  }
+  .sub{opacity:.78}
+  a{color:var(--liberty-blue); text-decoration:underline; text-underline-offset:3px}
+  /* Buttons */
+  .btn{
+    --bpad:14px 20px;
+    appearance:none; border:0; cursor:pointer;
+    padding:var(--bpad); border-radius:999px;
+    font-weight:800; letter-spacing:.02em;
+    transition:transform .12s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+    box-shadow:0 2px 0 rgba(0,0,0,.06);
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{
+    background:var(--liberty-yellow);
+    color:#1a1a1a;
+  }
+  .btn-primary:hover{box-shadow:0 8px 18px rgba(255,205,0,.4)}
+  .btn-blue{background:var(--liberty-blue); color:#fff}
+  .btn-outline{
+    background:#fff; color:var(--liberty-blue); border:2px solid var(--liberty-blue)
+  }
+  /* NAV */
+  .nav{
+    position:sticky; top:0; z-index:60; backdrop-filter:saturate(120%) blur(6px);
+    background:color-mix(in srgb, #fff 86%, transparent);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex; align-items:center; gap:18px; padding:14px 0}
+  .brand{
+    display:flex; align-items:center; gap:12px; font-weight:900; color:var(--liberty-blue); text-decoration:none
+  }
+  .brand-badge{
+    inline-size:40px; block-size:40px; border-radius:10px;
+    background:linear-gradient(135deg, var(--liberty-yellow), #ffd94a);
+    display:grid; place-items:center; box-shadow:var(--shadow); color:#1a1a1a; font-weight:900
+  }
+  .nav-links{margin-left:auto; display:flex; flex-wrap:wrap; gap:12px}
+  .nav-links a{
+    text-decoration:none; color:#18324a; font-weight:700; padding:8px 12px; border-radius:10px;
+  }
+  .nav-links a:hover{background:var(--muted)}
+  /* HERO */
+  .hero{
+    padding-block: clamp(60px, 12vw, 120px);
+    background:
+      radial-gradient(1200px 400px at 80% -20%, rgba(255,205,0,.18), transparent),
+      radial-gradient(800px 360px at -10% -30%, rgba(0,45,91,.14), transparent)
+    ;
+  }
+  .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(22px, 3.6vw, 40px)}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  .hero h1{font-size:clamp(34px, 5vw, 64px); line-height:1.05; margin:.1em 0 .35em; color:var(--liberty-blue)}
+  .hero p{font-size:clamp(16px, 1.8vw, 20px)}
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
+  .tilt{
+    perspective:1000px; transform-style:preserve-3d;
+    border-radius:var(--radius-lg); overflow:hidden; position:relative; box-shadow:var(--shadow)
+  }
+  .tilt .frame{
+    aspect-ratio:16/9; background:linear-gradient(135deg,#e4eaf3,#f7f9fc);
+    display:grid; place-items:center; color:#48607c; font-weight:800; font-size:clamp(14px,1.6vw,16px);
+    position:relative;
+  }
+  .tilt .badge{
+    position:absolute; inset:auto 14px 14px auto; background:var(--liberty-yellow); color:#111; font-weight:900; padding:8px 12px; border-radius:999px; box-shadow:var(--shadow)
+  }
+  .tilt:hover .frame{filter:saturate(110%)}
+  /* GRID / CARDS */
+  .grid-3{display:grid; gap:18px; grid-template-columns:repeat(3, 1fr)}
+  .grid-2{display:grid; gap:22px; grid-template-columns:repeat(2, 1fr)}
+  .grid-4{display:grid; gap:16px; grid-template-columns:repeat(4, 1fr)}
+  @media (max-width:1000px){.grid-3,.grid-4{grid-template-columns:1fr 1fr}}
+  @media (max-width:680px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
+  }
+  .kpi{display:flex; align-items:center; gap:14px}
+  .kpi .dot{inline-size:10px; block-size:10px; border-radius:50%; background:var(--liberty-blue)}
+  .kpi .num{font-weight:900; font-size:clamp(22px, 3.2vw, 34px)}
+  /* MEDIA PLACEHOLDERS wired to /assets/... */
+  figure.media{
+    margin:0; position:relative; border-radius:var(--radius); overflow:hidden; border:1px dashed #cdd6e4; background:#f6f8fb
+  }
+  .media img{display:block; inline-size:100%; block-size:auto}
+  .media .ph{
+    position:absolute; inset:0; display:none; align-items:center; justify-content:center;
+    color:#6b7c92; font-weight:800; font-size:14px; text-align:center; padding:10px;
+    background:
+      repeating-linear-gradient(45deg,#eef2f9 0 20px,#f8fbff 20px 40px);
+  }
+  /* when image missing, JS or onerror shows .ph */
+  .media[data-missing="1"] .ph{display:flex}
+  /* ALT layouts */
+  .alt-row{
+    display:grid; gap:22px; grid-template-columns:1.1fr .9fr; align-items:center;
+  }
+  .alt-row:nth-child(even){grid-template-columns:.9fr 1.1fr}
+  @media (max-width:900px){.alt-row{grid-template-columns:1fr}}
+  /* TIMELINE */
+  .timeline{position:relative; border-left:3px solid var(--liberty-blue); margin-left:10px}
+  .timeline .t{padding:12px 14px 14px 16px; position:relative}
+  .timeline .t::before{
+    content:""; position:absolute; left:-9px; top:16px; inline-size:14px; block-size:14px; background:var(--liberty-yellow); border:2px solid var(--liberty-blue); border-radius:50%;
+    box-shadow:0 0 0 4px #fff;
+  }
+  /* GALLERY */
+  .gallery{display:grid; gap:16px}
+  .gallery .row{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media (max-width:900px){.gallery .row{grid-template-columns:1fr}}
+  /* QUOTES */
+  blockquote{
+    margin:0; padding:18px 20px; border-left:6px solid var(--liberty-yellow); background:#fffbe6; border-radius:0 var(--radius) var(--radius) 0; box-shadow:var(--shadow)
+  }
+  /* NEWS TILES */
+  .tiles{display:grid; gap:14px; grid-template-columns:repeat(3,1fr)}
+  @media (max-width:900px){.tiles{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){.tiles{grid-template-columns:1fr}}
+  .tile{
+    display:flex; flex-direction:column; gap:10px; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; text-decoration:none; color:inherit; box-shadow:var(--shadow)
+  }
+  .tile:hover{transform:translateY(-2px); transition:transform .18s ease}
+  /* FAQ */
+  details{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:14px 16px; box-shadow:var(--shadow)
+  }
+  details+details{margin-top:10px}
+  summary{cursor:pointer; font-weight:800; color:#213b5b}
+  /* FOOTER */
+  footer{
+    padding-block:36px; background:linear-gradient(180deg, #f7f9fc, #f2f6fb)
+  }
+  .fine{font-size:12px; color:#6e7f94}
+  /* INLINE ENDORSEMENT BANNER */
+  .endorse-inline{
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    background:linear-gradient(90deg, var(--liberty-yellow), #ffe160);
+    border:1px solid #e7ba00; border-radius:var(--radius-lg); padding:18px 20px; box-shadow:var(--shadow)
+  }
+  .endorse-inline .msg{font-weight:900; color:#1a1a1a}
+  /* POPUPS */
+  .top-banner{
+    position:fixed; inset:0 0 auto 0; translate:0 -100%;
+    background:linear-gradient(180deg, #fff, #f8fbff); border-bottom:2px solid var(--liberty-blue);
+    box-shadow:0 14px 30px rgba(0,0,0,.12); z-index:90; padding:12px 16px;
+    transition:translate .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .top-banner.show{translate:0 0}
+  .top-banner .inner{display:flex; align-items:center; gap:12px}
+  .top-banner .label{font-weight:900; color:var(--liberty-blue); font-size:15px}
+  .top-banner.variant-blue{background:linear-gradient(180deg, #103b6a, #002d5b); color:#fff; border-bottom-color:#001f41}
+  .top-banner.variant-blue .label{color:#fff}
+  .top-banner .btn{margin-left:auto}
+
+  .side-prompt{
+    position:fixed; top:24vh; translate:-120% 0;
+    left:0; z-index:85; width:min(320px, 88vw);
+    background:#fff; border:2px solid var(--liberty-blue); border-left-width:0;
+    border-radius:0 var(--radius) var(--radius) 0; box-shadow:var(--shadow);
+    padding:14px 14px 14px 18px; display:flex; align-items:center; gap:12px;
+    transition:translate .55s cubic-bezier(.2,.8,.2,1)
+  }
+  .side-prompt.show{translate:0 0}
+  .side-prompt.right{left:auto; right:0; translate:120% 0; border-left-width:2px; border-right-width:0; border-radius:var(--radius) 0 0 var(--radius)}
+  .side-prompt.right.show{translate:0 0}
+  .side-prompt .tag{font-size:12px; font-weight:900; letter-spacing:.12em; color:#3a5a7a; text-transform:uppercase}
+  .side-prompt .btn{margin-left:auto}
+
+  .fs-modal{
+    position:fixed; inset:0; display:none; place-items:center; z-index:95;
+    background:color-mix(in srgb, #001a33 52%, transparent);
+    backdrop-filter:blur(3px) saturate(120%);
+  }
+  .fs-modal.show{display:grid}
+  .fs-card{
+    width:min(640px, 92vw); background:#fff; border:2px solid var(--liberty-blue);
+    border-radius:24px; padding:28px; box-shadow:0 40px 80px rgba(0,0,0,.25);
+    text-align:center; animation:scaleIn .35s ease;
+  }
+  .fs-card h3{margin:.2em 0 .2em; font-size:clamp(22px, 2.8vw, 30px); color:var(--liberty-blue)}
+  .fs-card p{margin:.2em 0 1em}
+  @keyframes scaleIn{from{transform:scale(.9); opacity:0} to{transform:scale(1); opacity:1}}
+  /* CONFETTI (for YES click) */
+  .confetti{
+    position:fixed; width:10px; height:10px; pointer-events:none; z-index:120;
+    animation:confetti 900ms ease-out forwards;
+  }
+  @keyframes confetti{
+    0%{opacity:1; transform:translate(0,0) rotate(0)}
+    100%{opacity:0; transform:translate(var(--dx), var(--dy)) rotate(var(--rot))}
+  }
+  /* REVEAL ON SCROLL */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.in{opacity:1; transform:none}
+  /* SUPPORTER BUBBLES (bottom-right) */
+  .supporters{
+    position:fixed; right:16px; bottom:16px; z-index:70; display:flex; flex-direction:column; gap:10px; align-items:flex-end
+  }
+  .bubble{
+    background:#fff; border:1px solid var(--line); border-radius:18px; padding:10px 14px; box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:8px; font-weight:800;
+  }
+  .bubble.main{border-color:#ffc400; background:linear-gradient(180deg,#fff, #fff8d7)}
+  .bubble.small{opacity:.88; transform:translateX(10px); font-weight:700}
+  .live-dot{
+    width:9px; height:9px; border-radius:50%; background:#e31313; box-shadow:0 0 0 0 rgba(227,19,19,.6);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(227,19,19,.6)}
+    70%{box-shadow:0 0 0 12px rgba(227,19,19,0)}
+    100%{box-shadow:0 0 0 0 rgba(227,19,19,0)}
+  }
+  /* SMALL UTILITIES */
+  .muted{color:#6e8096}
+  .pill{display:inline-flex; align-items:center; gap:8px; background:#eef3fa; color:#345272; border-radius:999px; padding:6px 10px; font-weight:800; font-size:12px}
+  .stripe{width:72px; height:6px; border-radius:3px; background:linear-gradient(90deg, var(--liberty-blue), var(--liberty-yellow)); margin:8px 0 14px}
+  .spacer{height:12px}
+</style>
+</head>
+<body>
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-badge">LM</span>
+        <span>Limu Emu &amp; Doug 2025</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#why">Why Limu Emu</a>
+        <a href="#candidates">Meet the Candidates</a>
+        <a href="#plan">The Plan</a>
+        <a href="#record">Record</a>
+        <a href="#video">Campaign Video</a>
+        <a href="#join" class="pill">Get Involved</a>
+        <button id="endorseNow" class="btn btn-primary" title="Open endorsement modal">Endorse Now</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <main id="top" class="hero section">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="section-kicker">Republicans With Insurance</div>
+        <h1>LIMU EMU & Doug</h1>
+        <p class="sub">Patriotic. Proven. Policy-first. LiMu Emu is here to protect America from unneeded spending. We're $38T in debt, but we can fix that, by only paying, for what we need.</p>
+        <div class="stripe"></div>
+        <div class="hero-actions">
+          <a href="#plan" class="btn btn-blue">See the Plan</a>
+          <a href="#why" class="btn btn-outline">Why Limu Emu</a>
+          <button id="endorseNow2" class="btn btn-primary">Endorse Now</button>
+        </div>
+      </div>
+
+      <!-- Interactive image placeholder (tilt) -->
+      <div class="tilt reveal" id="tiltBox" aria-label="Hero image placeholder">
+        <div class="frame">
+          <figure class="media" style="width:100%; height:100%" data-missing="1">
+            <!-- HERO image wired to /assets -->
+            <img src="C:/Users/owenk/Documents/Government Project/assets/hero.png" alt="TODO: Insert hero image (/assets/hero-wide.jpg)" loading="eager"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+          </figure>
+        </div>
+        <span class="badge">LIMU EMU & Doug</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= QUICK STATS ================= -->
+  <section class="section" id="stats">
+    <div class="container">
+      <div class="section-kicker">Key Metrics</div>
+      <h2 class="section-title">Quick Stats</h2>
+      <div class="grid-3 reveal">
+        <div class="card kpi">
+          <span class="dot"></span>
+          <div>
+            <div class="num">50<span class="muted">+</span></div>
+            <div class="muted">Years of service</div>
+          </div>
+        </div>
+        <div class="card kpi">
+          <span class="dot" style="background:var(--liberty-yellow)"></span>
+          <div>
+            <div class="num">9<span class="muted">/</span>10</div>
+            <div class="muted">Americans prefer saving money, and even more prefer watching Liberty Mutual ads.</div>
+          </div>
+        </div>
+        <div class="card kpi">
+          <span class="dot" style="background:#1fa971"></span>
+          <div>
+            <div class="num">$9,824,347<span class="muted">+</span></div>
+            <div class="muted">Already saved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY LIMU EMU ================= -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-kicker">Reasons</div>
+      <h2 class="section-title">Why Limu Emu</h2>
+      <div class="alt-row reveal">
+        <figure class="media" data-missing="1">
+          <img src="/assets/why.jpg" alt="TODO: Why Limu Emu image (/assets/why.jpg)" loading="lazy"
+               onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+          <div class="ph">Insert image → <strong>/assets/why.jpg</strong></div>
+        </figure>
+        <div>
+          <p><strong>TODO:</strong> Insert persuasive copy about integrity, savings, and accountability in government, written in a corporate-presidential tone.</p>
+          <ul>
+            <li><strong>TODO:</strong> Reason #1</li>
+            <li><strong>TODO:</strong> Reason #2</li>
+            <li><strong>TODO:</strong> Reason #3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MEET THE CANDIDATES ================= -->
+  <section class="section" id="candidates">
+    <div class="container">
+      <div class="section-kicker">Leadership</div>
+      <h2 class="section-title">Meet the Candidates</h2>
+      <div class="grid-2 reveal">
+        <div class="card">
+          <figure class="media" data-missing="1">
+            <img src="/assets/limu-emu.jpg" alt="TODO: Limu Emu portrait (/assets/limu-emu.jpg)" loading="lazy"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+            <div class="ph">Insert image → <strong>/assets/limu-emu.jpg</strong></div>
+          </figure>
+          <h3>Limu Emu — President</h3>
+          <p><strong>TODO:</strong> Presidential bio paragraph.</p>
+        </div>
+        <div class="card">
+          <figure class="media" data-missing="1">
+            <img src="/assets/doug.jpg" alt="TODO: Doug portrait (/assets/doug.jpg)" loading="lazy"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+            <div class="ph">Insert image → <strong>/assets/doug.jpg</strong></div>
+          </figure>
+          <h3>Doug — Vice President</h3>
+          <p><strong>TODO:</strong> VP bio paragraph.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MISSION STATEMENT ================= -->
+  <section class="section" id="mission">
+    <div class="container">
+      <div class="section-kicker">Mission</div>
+      <h2 class="section-title">Mission Statement</h2>
+      <div class="reveal grid-2">
+        <div class="card">
+          <p><strong>TODO:</strong> Insert clear mission statement (2–3 sentences) in a formal, trustworthy tone.</p>
+        </div>
+        <div class="card">
+          <p class="muted"><strong>TODO:</strong> Add three mission bullets:</p>
+          <ul>
+            <li><strong>TODO:</strong> Bullet A</li>
+            <li><strong>TODO:</strong> Bullet B</li>
+            <li><strong>TODO:</strong> Bullet C</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INLINE YES AD (IN-PAGE) ================= -->
+  <section class="section" id="inline-endorse">
+    <div class="container">
+      <div class="endorse-inline reveal" data-inline-banner>
+        <div class="msg" data-inline-text>YES to accountability. YES to Limu Emu &amp; Doug. Endorse now?</div>
+        <button class="btn btn-blue" data-inline-yes>YES</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE PLAN ================= -->
+  <section class="section" id="plan">
+    <div class="container">
+      <div class="section-kicker">Priorities</div>
+      <h2 class="section-title">The Plan</h2>
+      <div class="grid-3 reveal">
+        <div class="card">
+          <h3>TODO: Issue #1</h3>
+          <p>TODO: 2–3 sentence summary.</p>
+        </div>
+        <div class="card">
+          <h3>TODO: Issue #2</h3>
+          <p>TODO: 2–3 sentence summary.</p>
+        </div>
+        <div class="card">
+          <h3>TODO: Issue #3</h3>
+          <p>TODO: 2–3 sentence summary.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RECORD / TIMELINE ================= -->
+  <section class="section" id="record">
+    <div class="container">
+      <div class="section-kicker">Results</div>
+      <h2 class="section-title">Record &amp; Timeline</h2>
+      <div class="timeline reveal">
+        <div class="t card"><strong>TODO:</strong> Year • Achievement headline • Short description.</div>
+        <div class="t card"><strong>TODO:</strong> Year • Achievement headline • Short description.</div>
+        <div class="t card"><strong>TODO:</strong> Year • Achievement headline • Short description.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAMPAIGN VIDEO ================= -->
+  <section class="section" id="video">
+    <div class="container">
+      <div class="section-kicker">Watch</div>
+      <h2 class="section-title">Campaign Video</h2>
+      <div class="reveal">
+        <figure class="media" data-missing="1" style="aspect-ratio:16/9">
+          <!-- TODO: Replace with your YouTube embed src -->
+          <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/4mslZ-fIWnM?si=l6wjkZ834_SJDmFf&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PHOTO GALLERY ================= -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-kicker">Gallery</div>
+      <h2 class="section-title">Photos on the Trail</h2>
+      <div class="gallery reveal">
+        <div class="row">
+          <figure class="media" data-missing="1">
+            <img src="/assets/gallery-1.jpg" alt="TODO: Gallery image (/assets/gallery-1.jpg)" loading="lazy"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+            <div class="ph">Insert image → <strong>/assets/gallery-1.jpg</strong></div>
+          </figure>
+          <div class="card">
+            <h3>TODO: Caption title</h3>
+            <p>TODO: 1–2 sentence caption text that pairs with the adjacent image.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card">
+            <h3>TODO: Caption title</h3>
+            <p>TODO: 1–2 sentence caption text that pairs with the adjacent image.</p>
+          </div>
+          <figure class="media" data-missing="1">
+            <img src="/assets/gallery-2.jpg" alt="TODO: Gallery image (/assets/gallery-2.jpg)" loading="lazy"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+            <div class="ph">Insert image → <strong>/assets/gallery-2.jpg</strong></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-kicker">Endorsements</div>
+      <h2 class="section-title">What People Are Saying</h2>
+      <div class="grid-3 reveal">
+        <blockquote>“TODO: Short endorsement quote.”<br><span class="muted">— TODO: Name, Title</span></blockquote>
+        <blockquote>“TODO: Short endorsement quote.”<br><span class="muted">— TODO: Name, Title</span></blockquote>
+        <blockquote>“TODO: Short endorsement quote.”<br><span class="muted">— TODO: Name, Title</span></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWS ================= -->
+  <section class="section" id="news">
+    <div class="container">
+      <div class="section-kicker">Updates</div>
+      <h2 class="section-title">Latest News</h2>
+      <div class="tiles reveal">
+        <a class="tile" href="#" aria-label="TODO: Link to news">
+          <figure class="media" data-missing="1" style="aspect-ratio:16/9">
+            <img src="/assets/news-1.jpg" alt="TODO: News image (/assets/news-1.jpg)" loading="lazy"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+            <div class="ph">/assets/news-1.jpg</div>
+          </figure>
+          <strong>TODO: Headline</strong>
+          <span class="muted">TODO: Short summary</span>
+        </a>
+        <a class="tile" href="#">
+          <figure class="media" data-missing="1" style="aspect-ratio:16/9">
+            <img src="/assets/news-2.jpg" alt="TODO: News image (/assets/news-2.jpg)" loading="lazy"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+            <div class="ph">/assets/news-2.jpg</div>
+          </figure>
+          <strong>TODO: Headline</strong>
+          <span class="muted">TODO: Short summary</span>
+        </a>
+        <a class="tile" href="#">
+          <figure class="media" data-missing="1" style="aspect-ratio:16/9">
+            <img src="/assets/news-3.jpg" alt="TODO: News image (/assets/news-3.jpg)" loading="lazy"
+                 onerror="this.parentElement.setAttribute('data-missing','1'); this.remove()" />
+            <div class="ph">/assets/news-3.jpg</div>
+          </figure>
+          <strong>TODO: Headline</strong>
+          <span class="muted">TODO: Short summary</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= JOIN THE MOVEMENT ================= -->
+  <section class="section" id="join">
+    <div class="container">
+      <div class="section-kicker">Action</div>
+      <h2 class="section-title">Join the Movement</h2>
+      <div class="grid-2 reveal">
+        <form class="card" onsubmit="event.preventDefault(); celebrate(event);">
+          <h3>Volunteer / Pledge</h3>
+          <label>Full Name<br/><input required placeholder="TODO: Your Name" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px"></label>
+          <div class="spacer"></div>
+          <label>Email<br/><input required type="email" placeholder="TODO: Your Email" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px"></label>
+          <div class="spacer"></div>
+          <label>Message (optional)<br/><textarea placeholder="TODO: How you want to help" rows="4" style="width:100%;padding:12px;border:1px solid var(--line);border-radius:10px"></textarea></label>
+          <div class="spacer"></div>
+          <button class="btn btn-blue">Submit</button>
+        </form>
+        <div class="card">
+          <h3>Share Your Support</h3>
+          <p><strong>TODO:</strong> Add social actions or messaging here.</p>
+          <button class="btn btn-primary" id="endorseNow3">Endorse Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-kicker">Questions</div>
+      <h2 class="section-title">FAQ</h2>
+      <div class="reveal">
+        <details>
+          <summary>TODO: Question one?</summary>
+          <p>TODO: Answer with concise, reassuring copy.</p>
+        </details>
+        <details>
+          <summary>TODO: Question two?</summary>
+          <p>TODO: Answer with concise, reassuring copy.</p>
+        </details>
+        <details>
+          <summary>Is this a real campaign?</summary>
+          <p>No. This is a <strong>parody educational project</strong> for a government class. Replace all placeholders before publishing.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="section" id="final-cta">
+    <div class="container reveal">
+      <div class="endorse-inline" data-inline-banner>
+        <div class="msg" data-inline-text>Ready to say YES? Add your name to support Limu Emu &amp; Doug.</div>
+        <button class="btn btn-blue" data-inline-yes>YES</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <strong style="color:var(--liberty-blue)">Paid for by YES Committee (Parody)</strong>
+          <p class="fine">This site imitates Liberty Mutual’s color system for parody/educational purposes only. No trademarked logos or endorsements are used.</p>
+        </div>
+        <div style="text-align:right">
+          <a href="#top" class="btn btn-outline">Back to top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= POPUPS (STRUCTURE) ================= -->
+  <div class="top-banner" id="topBanner" aria-live="polite">
+    <div class="container inner">
+      <span class="label" id="topBannerText">Do you support Limu Emu &amp; Doug?</span>
+      <button class="btn btn-primary" id="topBannerYes">YES</button>
+    </div>
+  </div>
+
+  <div class="side-prompt left" id="sideLeft">
+    <div>
+      <div class="tag">Quick Question</div>
+      <div id="leftText"><strong>YES</strong> to Limu Emu &amp; Doug?</div>
+    </div>
+    <button class="btn btn-blue" id="leftYes">YES</button>
+  </div>
+
+  <div class="side-prompt right" id="sideRight">
+    <div>
+      <div class="tag">One Tap</div>
+      <div id="rightText">Stand with Limu Emu &amp; Doug?</div>
+    </div>
+    <button class="btn btn-blue" id="rightYes">YES</button>
+  </div>
+
+  <div class="fs-modal" id="fsModal" aria-modal="true" role="dialog">
+    <div class="fs-card">
+      <div class="pill" style="justify-content:center; margin-inline:auto; margin-bottom:6px">Official Endorsement</div>
+      <h3 id="fsTitle">Do you endorse Limu Emu &amp; Doug?</h3>
+      <p id="fsCopy" class="muted">A simple YES adds your name to our growing movement.</p>
+      <button class="btn btn-primary" id="fsYes" style="font-size:18px; padding:14px 24px">YES</button>
+    </div>
+  </div>
+
+  <!-- ================= SUPPORTER COUNTERS ================= -->
+  <aside class="supporters" aria-live="polite">
+    <div class="bubble small">
+      <span class="muted">Geico Gecko:</span>
+      <span id="geicoCount">5,421</span>
+    </div>
+    <div class="bubble main">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span>Current Supporters:</span>
+      <span id="libertyCount" style="min-width:120px; text-align:right">7,834,291</span>
+    </div>
+  </aside>
+
+<script>
+/* =========================================================
+   JS: interactions, animations, popups, counters (no deps)
+   ========================================================= */
+
+// ---------- Helpers
+const $ = (q, r=document) => r.querySelector(q);
+const $$ = (q, r=document) => [...r.querySelectorAll(q)];
+const fmt = n => Number(Math.round(n)).toLocaleString();
+
+// ---------- Reveal on scroll
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+},{threshold:.12});
+$$('.reveal').forEach(el=>io.observe(el));
+
+// ---------- Tilt effect (hero image)
+(() => {
+  const box = $('#tiltBox');
+  if(!box) return;
+  const frame = box.querySelector('.frame');
+  const onMove = (ev) => {
+    const r = frame.getBoundingClientRect();
+    const cx = r.left + r.width/2;
+    const cy = r.top + r.height/2;
+    const dx = (ev.clientX - cx)/r.width;
+    const dy = (ev.clientY - cy)/r.height;
+    frame.style.transform = `rotateX(${(-dy*6).toFixed(2)}deg) rotateY(${(dx*8).toFixed(2)}deg)`;
+  };
+  const reset = () => { frame.style.transform = 'rotateX(0) rotateY(0)'; };
+  frame.addEventListener('mousemove', onMove);
+  frame.addEventListener('mouseleave', reset);
+})();
+
+// ---------- Randomized popup copy & styles
+const yesLines = [
+  "Do you support Limu Emu & Doug?",
+  "Stand with Limu Emu & Doug today?",
+  "Add your YES for Limu Emu & Doug?",
+  "Ready to endorse Limu Emu & Doug?"
+];
+const subLines = [
+  "A single YES makes a difference.",
+  "Join thousands saying YES.",
+  "Your endorsement is one tap away.",
+  "Let’s build momentum together."
+];
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function applyBannerVariant(el){
+  el.classList.remove('variant-blue');
+  if(Math.random()>.5) el.classList.add('variant-blue');
+}
+
+// ---------- Top banner
+const topBanner = $('#topBanner');
+const topBannerText = $('#topBannerText');
+setTimeout(()=>{
+  topBannerText.textContent = rand(yesLines);
+  applyBannerVariant(topBanner);
+  topBanner.classList.add('show');
+}, 900);
+$('#topBannerYes').addEventListener('click', (e)=>{
+  celebrate(e);
+  topBanner.classList.remove('show');
+});
+
+// ---------- Side prompts (persist until YES)
+const left = $('#sideLeft'), right = $('#sideRight');
+$('#leftText').textContent = rand(yesLines);
+$('#rightText').textContent = rand(yesLines);
+setTimeout(()=> left.classList.add('show'), 1800);
+setTimeout(()=> right.classList.add('show'), 3600);
+$('#leftYes').addEventListener('click', (e)=>{ celebrate(e); left.remove(); });
+$('#rightYes').addEventListener('click', (e)=>{ celebrate(e); right.remove(); });
+
+// ---------- Inline banners (inside content)
+$$('[data-inline-banner]').forEach(b=>{
+  const t = b.querySelector('[data-inline-text]');
+  if(t) t.textContent = rand(yesLines);
+  b.querySelector('[data-inline-yes]').addEventListener('click', celebrate);
+});
+
+// ---------- Fullscreen modal (every 5 minutes & on CTA)
+const fs = $('#fsModal'), fsTitle = $('#fsTitle'), fsCopy = $('#fsCopy');
+function openFS(){
+  fsTitle.textContent = rand(yesLines);
+  fsCopy.textContent = rand(subLines);
+  fs.classList.add('show');
+  document.documentElement.style.overflow = 'hidden';
+}
+function closeFS(){
+  fs.classList.remove('show');
+  document.documentElement.style.overflow = '';
+}
+$('#fsYes').addEventListener('click', (e)=>{ celebrate(e); closeFS(); });
+// Every 5 minutes:
+setInterval(openFS, 5*60*1000);
+// Main buttons trigger it immediately
+['endorseNow','endorseNow2','endorseNow3'].forEach(id=>{
+  const b = document.getElementById(id);
+  if(b) b.addEventListener('click', openFS);
+});
+
+// ---------- Supporter counters (live, smooth)
+let liberty = 7834291; // starting count (millions & increasing)
+let geico   = 5421;    // opponent slower
+const elLib = $('#libertyCount');
+const elGec = $('#geicoCount');
+
+function tickCounts(boost=0){
+  // Liberty grows quickly
+  liberty += Math.max(50, Math.random()*200) + boost;
+  // Geico crawls
+  geico   += Math.random()<0.01 ? 1 : 0;
+  elLib.textContent = fmt(liberty);
+  elGec.textContent = fmt(geico);
+}
+setInterval(()=>tickCounts(0), 30);
+
+// ---------- YES celebration (confetti + count boost + button flair)
+function celebrate(e){
+  const rect = (e?.target?.getBoundingClientRect?.()) || {left:window.innerWidth/2, top:window.innerHeight/2, width:0, height:0};
+  const cx = rect.left + rect.width/2;
+  const cy = rect.top + rect.height/2 + window.scrollY;
+
+  // Button micro-success effect
+  if(e?.target){
+    e.target.disabled = true;
+    const old = e.target.textContent;
+    e.target.textContent = 'YES ✓';
+    e.target.style.background = 'linear-gradient(90deg, var(--liberty-yellow), #ffe160)';
+    setTimeout(()=>{ e.target.textContent = old; e.target.disabled = false; e.target.style.background=''; }, 900);
+  }
+
+  // Confetti burst
+  const colors = ['#FFCD00','#002D5B','#ffffff','#ffd94a','#335c88'];
+  for(let i=0;i<28;i++){
+    const piece = document.createElement('div');
+    piece.className='confetti';
+    piece.style.left = `${cx}px`;
+    piece.style.top  = `${cy}px`;
+    piece.style.background = colors[Math.floor(Math.random()*colors.length)];
+    const dx = (Math.random()*2-1)*220;
+    const dy = - (120 + Math.random()*220);
+    const rot = (Math.random()*360-180)+'deg';
+    piece.style.setProperty('--dx', dx+'px');
+    piece.style.setProperty('--dy', dy+'px');
+    piece.style.setProperty('--rot', rot);
+    document.body.appendChild(piece);
+    setTimeout(()=>piece.remove(), 950);
+  }
+
+  // Boost supporter number noticeably
+  tickCounts(400 + Math.random()*600);
+}
+
+// ---------- If any <figure.media> images failed to load, ensure placeholder shows
+$$('figure.media').forEach(f=>{
+  const img = f.querySelector('img');
+  if(!img){ f.setAttribute('data-missing','1'); }
+});
+
+// ---------- Accessibility nicety: close FS with Escape *only after YES requirement?*
+// Spec: cannot close except by YES. So we intentionally do NOT bind Escape.
+</script>
+</body>
+</html>
